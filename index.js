@@ -17,7 +17,7 @@
     for(var i = 0; i < list.length; i++){
         var link = list[i].getAttribute("href")
         $('body').append('<p>'+link+'</p>')
-        if(link.includes('png') || link.includes('jpg') || link.includes('gif')){
+        if(link.includes('png') || link.includes('jpg') || link.includes('gif') || link.includes('jpeg') || link.includes('bmp') || link.includes('svg')){
            $('body').append('<img src="'+link+'" style="width: 400px; display: block; margin: 10px">')
         }
         if(link.includes('mp4')){
