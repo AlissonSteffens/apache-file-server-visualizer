@@ -18,6 +18,15 @@
     $('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">')
     $('head').append('<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js" integrity="sha256-CtKylYan+AJuoH8jrMht1+1PMhMqrKnB8K5g012WN5I=" crossorigin="anonymous"></script>')
 
+    var url = $(location).attr('href')
+
+    $('body').append('<style>body{padding: 1rem;}</style>')
+    $('body').append('<h2>Visualize</h2>')
+    $('body').append('Order by ')
+    $('body').append('<a href="?C=M;O=D" class="btn btn-primary">New</a>')
+    $('body').append('<a href="?C=S;O=D" class="btn btn-primary">Size</a>')
+    $('body').append('<a href="?C=N;O=A" class="btn btn-primary">Name</a>')
+
     $('body').append('<div class=""><div class="row" id="list"></div></div>')
     for(var i = 0; i < list.length; i++){
         var link = list[i].getAttribute("href")
