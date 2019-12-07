@@ -21,7 +21,7 @@
            $('body').append('<img src="'+link+'" style="width: 400px; display: block; margin: 10px">')
         }
         if(link.includes('mp4')){
-           $('body').append('<source src="'+link+'" type="video/mp4">')
+           $('body').append('<video width="320" height="240" controls><source src="'+link+'" type="video/mp4"></video>')
         }
 
     }
