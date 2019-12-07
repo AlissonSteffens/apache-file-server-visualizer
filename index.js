@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         New Userscript
+// @name         Apache file visualizer
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
-// @author       You
+// @author       AlissonSteffens e RafaelfCosta
 // @match        http://*/*
 // @grant        none
 // @require http://code.jquery.com/jquery-3.4.1.min.js
