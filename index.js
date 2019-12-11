@@ -20,12 +20,16 @@
 
     var url = $(location).attr('href')
 
-    $('body').append('<style>body{padding: 1rem;}</style>')
+    $('body').append('<style>body{padding: 1rem;}.btn{margin:10px;}</style>')
     $('body').append('<h2>Visualize</h2>')
+    $('body').append('Dirs ')
+    $('body').append('<div style="display:inline-block; margin-bottom:20px;" id="pastas"></div>')
+     $('body').append('<br> ')
     $('body').append('Order by ')
     $('body').append('<a href="?C=M;O=D" class="btn btn-primary">New</a>')
     $('body').append('<a href="?C=S;O=D" class="btn btn-primary">Size</a>')
     $('body').append('<a href="?C=N;O=A" class="btn btn-primary">Name</a>')
+
 
     $('body').append('<div class=""><div class="row" id="list"></div></div>')
     for(var i = 0; i < list.length; i++){
@@ -33,13 +37,12 @@
         if(link.includes('png') || link.includes('jpg') || link.includes('gif') || link.includes('jpeg') || link.includes('bmp') || link.includes('svg')){
            $('div#list').append('<div class="card col-md-2" style="margin-bottom: 10px;"><a href="'+link+'" data-lightbox="imgs"><img class="card-img-top" src="'+link+'"><div class="card-body"><p>'+link+'</p></div></a></div>')
         }
-
-        if(link.includes('mp4')){
+        else if(link.includes('mp4')){
            $('div#list').append('<div class="card col-md-2" style="margin-bottom: 10px;"><video controls><source src="'+link+'" type="video/mp4"></video><div class="card-body"><p>'+link+'</p></div></div>')
-        }
-
-        if(link.includes('mp3')){
+        }else if(link.includes('mp3')){
            $('div#list').append('<div class="card col-md-2" style="margin-bottom: 10px;"><audio controls><source src="'+link+'" type="audio/mp3"></audio><div class="card-body"><p>'+link+'</p></div></div>')
+        }else if(link.includes('/')){
+           $('div#pastas').append('<a href="'+link+'" class="btn btn-primary">'+link+'</a>')
         }
     }
 })();
