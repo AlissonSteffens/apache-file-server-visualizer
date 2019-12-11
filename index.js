@@ -41,7 +41,12 @@
            $('div#list').append('<div class="card col-md-2" style="margin-bottom: 10px;"><video controls><source src="'+link+'" type="video/mp4"></video><div class="card-body"><p>'+link+'</p></div></div>')
         }else if(link.includes('mp3')){
            $('div#list').append('<div class="card col-md-2" style="margin-bottom: 10px;"><audio controls><source src="'+link+'" type="audio/mp3"></audio><div class="card-body"><p>'+link+'</p></div></div>')
-        }else if(link.includes('/')){
+        }else if(link.includes('html')){
+           $('div#list').append('<div class="card col-md-6" style="margin-bottom: 10px;"><p>'+link+'</p><iframe src="'+link+'"></iframe></div></div>')
+        }else if(link.includes('txt')){
+           $('div#list').append('<div class="card col-md-2" style="margin-bottom: 10px;"><p>'+link+'</p><iframe src="'+link+'"></iframe></div></div>')
+        }
+        else if(link.includes('/')){
            $('div#pastas').append('<a href="'+link+'" class="btn btn-primary">'+link+'</a>')
         }
     }
