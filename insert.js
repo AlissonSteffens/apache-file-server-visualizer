@@ -6,8 +6,12 @@ $('head').append('<link rel="stylesheet" href="https://stackpath.bootstrapcdn.co
 $('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">')
 $('head').append('<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js" integrity="sha256-CtKylYan+AJuoH8jrMht1+1PMhMqrKnB8K5g012WN5I=" crossorigin="anonymous"></script>')
 
-var url = $(location).attr('href')
 
+$('head').append('<style>.card-img-top {width: 100%;height: 250px;object-fit: cover;}.card{margin:1rem;}</style>')
+
+
+var url = $(location).attr('href')
+$('body').html("")
 $('body').append('<style>body{padding: 1rem;}.btn{margin:10px;}</style>')
 $('body').append('<h2>Visualize</h2>')
 $('body').append('Dirs ')
@@ -23,19 +27,22 @@ $('body').append('<a href="?C=N;O=A" class="btn btn-primary">Name</a>')
 $('body').append('<div class=""><div class="row" id="list"></div></div>')
 for(var i = 0; i < list.length; i++){
     var link = list[i].getAttribute("href")
+    var title = link
+    if(title.length > 20)
+        title = title.substring(0,20)
     if(link.includes('png') || link.includes('jpg') || link.includes('gif') || link.includes('jpeg') || link.includes('bmp') || link.includes('svg')){
-        $('div#list').append('<div class="card col-md-2" style="margin-bottom: 10px;"><a href="'+link+'" data-lightbox="imgs"><img class="card-img-top" src="'+link+'"><div class="card-body"><p>'+link+'</p></div></a></div>')
+        $('div#list').append('<div class="col-md-2""><a href="'+link+'" data-lightbox="imgs"><div class="card" ><img class="card-img-top" src="'+link+'"><div class="card-body"><p>'+title+'</p></div></div></a></div>')
     }
     else if(link.includes('mp4')){
-        $('div#list').append('<div class="card col-md-2" style="margin-bottom: 10px;"><video controls><source src="'+link+'" type="video/mp4"></video><div class="card-body"><p>'+link+'</p></div></div>')
+        $('div#list').append('<div class="col-md-2""><a href="'+link+'"><div class="card" ><video class="card-img-top" controls><source src="'+title+'" type="video/mp4"></video><div class="card-body"><p>'+link+'</p></div></div></a></div>')
+        
     }else if(link.includes('mp3')){
-        $('div#list').append('<div class="card col-md-2" style="margin-bottom: 10px;"><audio controls><source src="'+link+'" type="audio/mp3"></audio><div class="card-body"><p>'+link+'</p></div></div>')
-    }else if(link.includes('html')){
-        $('div#list').append('<div class="card col-md-6" style="margin-bottom: 10px;"><p>'+link+'</p><iframe src="'+link+'"></iframe></div></div>')
-    }else if(link.includes('txt')){
-        $('div#list').append('<div class="card col-md-2" style="margin-bottom: 10px;"><p>'+link+'</p><iframe src="'+link+'"></iframe></div></div>')
+        $('div#list').append('<div class="col-md-2""><a href="'+link+'"><div class="card" ><audio class="card-img-top" controls><source src="'+title+'" type="audio/mp3"></audio><div class="card-body"><p>'+link+'</p></div></div></a></div>')
+    }else if(link.includes('html') || link.includes('txt')){
+        $('div#list').append('<div class="col-md-2""><a href="'+link+'"><div class="card" ><iframe class="card-img-top" src="'+link+'"></iframe><div class="card-body"><p>'+title+'</p></div></div></a></div>')
     }
     else if(link.includes('/')){
         $('div#pastas').append('<a href="'+link+'" class="btn btn-primary">'+link+'</a>')
     }
 }
+window.scrollTo(0,0);
