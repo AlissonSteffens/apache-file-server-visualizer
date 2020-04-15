@@ -1,3 +1,6 @@
+
+![](demo/sample.jpg)
+
 # apache-file-server-visualizer
 A simple script to visualize images that are served by apache web file server
 Also working with Directory Lister
